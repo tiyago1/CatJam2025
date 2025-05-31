@@ -17,6 +17,11 @@
             
         }
 
+        public struct OnNextDay
+        {
+            
+        }
+
         public struct OnGameWon
         {
             

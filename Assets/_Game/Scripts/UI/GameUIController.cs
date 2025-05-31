@@ -14,7 +14,8 @@ namespace _Game.Scripts
         [SerializeField] private RectTransform dayIndicator;
         [SerializeField] private TextMeshProUGUI dayText;
         [SerializeField] private GameOverPanelView gameOverPanelView;
-
+        [SerializeField] private DayFinishedPanelView dayFinishedPanel;
+        
         [SerializeField] private float minRotation;
         [SerializeField] private float maxRotation;
 
@@ -24,13 +25,14 @@ namespace _Game.Scripts
         public void Initialize()
         {
             SetDayIndicator(1);
-            dayText.text = $"Day - {_dataController.DayIndex + 1}";
+            dayText.text = $"Day {_dataController.DayIndex + 1}";
             _signalBus.Subscribe<GameSignals.OnGameOver>(OnGameOver);
+            _signalBus.Subscribe<GameSignals.OnNextDay>(ActivateDayFinishedPanel);
         }
 
         private void OnGameOver()
         {
-            throw new System.NotImplementedException();
+            _dataController.ClearData();
         }
 
         [Button]
@@ -44,17 +46,12 @@ namespace _Game.Scripts
         public void SetStress(float value)
         {
             stressSlider.FillAmount = value;
-                gameOverPanelView.SetGameOverDarkness(value);
-            // if (value > .5f)
-            // {
-            //     var darkneessValue = ReRangeValue(value - .5f, 0, .5f, 0, 1);
-            //
-            //     Debug.Log(value + " " + darkneessValue);
-            // }
-            // else
-            // {
-            //     gameOverPanelView.SetGameOverDarkness(0);
-            // }
+            gameOverPanelView.SetGameOverDarkness(value);
+        }
+
+        public void ActivateDayFinishedPanel()
+        {
+            dayFinishedPanel.Show();
         }
 
         private float ReRangeValue(float value, float oldMin, float oldMax, float newMin, float newMax)
