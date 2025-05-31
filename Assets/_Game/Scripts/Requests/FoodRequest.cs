@@ -40,7 +40,7 @@ namespace _Game.Scripts
 
         public void OnPointerDown(PointerEventData eventData)
         {
-            if (!IsValid())
+            if (!IsValid() || IsRequestIgnored)
                 return;
 
             Solve();

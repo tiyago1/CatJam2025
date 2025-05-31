@@ -39,6 +39,9 @@ namespace _Game.Scripts
 
         public override void Solve()
         {
+            if (IsRequestIgnored)
+                return;
+            
             if (Cat.AreaType == AreaType)
             {
                 Cat.Approved().Forget();
@@ -54,7 +57,7 @@ namespace _Game.Scripts
 
         public void OnPointerDown(PointerEventData eventData)
         {
-            if (!IsValid())
+            if (!IsValid() || IsRequestIgnored)
                 return;
 
             _isDragging = true;

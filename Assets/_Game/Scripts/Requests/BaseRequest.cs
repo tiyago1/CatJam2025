@@ -1,5 +1,6 @@
 using System;
 using _Game.Enums;
+using _Game.Signals;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
@@ -17,6 +18,7 @@ namespace _Game.Scripts
 
         public RequestType Type;
         protected Cat Cat;
+        protected bool IsRequestIgnored;
         private Tweener _timer;
 
         public virtual void Initialize(Cat cat)
@@ -30,20 +32,17 @@ namespace _Game.Scripts
         {
            _timer=  DOVirtual.Float(0, 1, _dataController.Day.GetRequestDuration(), requestView.ProgressBar.SetFillAmount)
                 .SetEase(Ease.Linear)
-                .OnStepComplete(() => OnTimeCompleted().Forget())
+                .OnStepComplete(() =>
+                {
+                    Cat.Decline().Forget();
+                    SignalBus.Fire<GameSignals.OnFailRequest>();
+                })
                 .SetDelay(.1f);
         }
 
         protected void CancelTimer()
         {
             _timer.Kill();
-        }
-
-        protected virtual async UniTask OnTimeCompleted()
-        {
-            await UniTask.Delay(TimeSpan.FromSeconds(.2f));
-            await UniTask.Delay(TimeSpan.FromSeconds(_dataController.Day.GetRequestWaitDuration()));
-            Cat.OnTimeCompleted();
         }
 
         public abstract void Solve();

@@ -53,7 +53,7 @@ namespace _Game.Scripts
             ResetRequest();
 
             await UniTask.Delay(TimeSpan.FromSeconds(1));
-            NextRequest().Forget();
+            GoRandomPath();
         }
 
         public async UniTask Decline()
@@ -62,7 +62,7 @@ namespace _Game.Scripts
             ResetRequest();
 
             await UniTask.Delay(TimeSpan.FromSeconds(1));
-            NextRequest().Forget();
+            GoRandomPath();
         }
 
         public async UniTask NextRequest()
@@ -74,7 +74,7 @@ namespace _Game.Scripts
 
         public void SetRandomRequest()
         {
-            SetRequestType(RequestType.Area);
+            SetRequestType(RequestType.Food);
         }
         
         [Button]
@@ -95,9 +95,6 @@ namespace _Game.Scripts
             Request = null;
         }
 
-        public void OnTimeCompleted()
-        {
-        }
 
         [Button]
         public void GoRandomPath()
@@ -109,8 +106,8 @@ namespace _Game.Scripts
         {
             base.OnTargetReached();
             Debug.Log("OnTargetReached");
+            NextRequest().Forget();
         }
-
 
         private void OnTriggerEnter2D(Collider2D other)
         {
