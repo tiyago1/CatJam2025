@@ -111,7 +111,6 @@ namespace _Game.Scripts
         public override void OnTargetReached()
         {
             base.OnTargetReached();
-            Debug.Log("OnTargetReached");
             NextRequest().Forget();
         }
 

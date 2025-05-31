@@ -48,7 +48,6 @@ namespace _Game.Scripts.Managers
 
         private void OnSuccessRequest(GameSignals.OnSuccessRequest obj)
         {
-            Debug.Log($"OnSuccessRequest");
             DecreaseStress(_dataController.Day.SuccessStress);
             var day = _dataController.DayIndex;
             _dataController.SetPositiveCount(day, _dataController.GetPositiveCount(day) + 1);
@@ -56,7 +55,6 @@ namespace _Game.Scripts.Managers
 
         private void OnFailRequest(GameSignals.OnFailRequest obj)
         {
-            Debug.Log($"OnFailRequest:");
             IncreaseStress(_dataController.Day.FailStress);
             var day = _dataController.DayIndex;
             _dataController.SetNegativeCount(day, _dataController.GetNegativeCount(day) + 1);
@@ -64,9 +62,6 @@ namespace _Game.Scripts.Managers
 
         private void StartDayTimer()
         {
-            // DOVirtual.Float(0, 1, _dataController.Day.Duration,
-            //         (normalizedValue) => { _gameUIController.SetDayIndicator(normalizedValue); })
-            //     .OnComplete(OnDayTimeFinished);
             GetDayTimer().Forget();
             GetStress().Forget();
         }
