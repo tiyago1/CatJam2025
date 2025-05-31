@@ -1,21 +1,22 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using _Game.Enums;
 using Cysharp.Threading.Tasks;
+using GamePlay.Components;
 using Sirenix.OdinInspector;
+using Unity.VisualScripting;
 using UnityEngine;
 using Zenject;
-using Random = UnityEngine.Random;
 
 namespace _Game.Scripts
 {
-    public class Cat : MonoBehaviour
+    public class Cat : PathfActor
     {
         [SerializeField] private List<BaseRequest> requests;
         [SerializeField] private Transform requestContainer;
         [SerializeField] public CatView view;
-
+        [SerializeField] private RandomPathAI randomPathAI;
+        
         public AreaType AreaType;
         public BaseRequest Request;
         public CatState State;
@@ -28,6 +29,16 @@ namespace _Game.Scripts
             SetRandomRequest();
 
             view.Initialize(_dataController.GetRandomCat());
+        }
+
+
+        protected override void Update()
+        {
+            base.Update();
+            if (Input.GetKeyDown(KeyCode.Z))
+            {
+                GoRandomPath();
+            }
         }
 
         public void ChangeState(CatState state)
@@ -87,6 +98,19 @@ namespace _Game.Scripts
         public void OnTimeCompleted()
         {
         }
+
+        [Button]
+        public void GoRandomPath()
+        {
+            randomPathAI. Activate();
+        }
+
+        public override void OnTargetReached()
+        {
+            base.OnTargetReached();
+            Debug.Log("OnTargetReached");
+        }
+
 
         private void OnTriggerEnter2D(Collider2D other)
         {

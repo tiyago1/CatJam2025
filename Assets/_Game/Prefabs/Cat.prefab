@@ -71,7 +71,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -878917351
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 2976e4adf00c1c44b88c88cee9cadab0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -155,7 +155,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -878917351
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 176d05b92d7aa3347bd9fddb4d03536e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -180,6 +180,9 @@ GameObject:
   - component: {fileID: 9001289333939519727}
   - component: {fileID: 7824737202390320206}
   - component: {fileID: 5856295519299688521}
+  - component: {fileID: 396266038534050698}
+  - component: {fileID: 8869153761046336513}
+  - component: {fileID: 5740505548993235693}
   m_Layer: 7
   m_Name: Cat
   m_TagString: Untagged
@@ -218,14 +221,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe8a2d2670fa442ca35e6eaf1c5f27d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  version: 5
+  radius: 0.5
+  height: 2
+  canMove: 1
+  maxSpeed: 2
+  gravity: {x: 0, y: 0, z: 0}
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  centerOffsetCompatibility: NaN
+  repathRateCompatibility: NaN
+  canSearchCompability: 0
+  orientation: 1
+  enableRotation: 0
+  autoRepath:
+    mode: 0
+    period: NaN
+    sensitivity: 10
+    maximumPeriod: 2
+    visualizeSensitivity: 0
+  targetCompatibility: {fileID: 0}
+  maxAcceleration: -2.5
+  rotationSpeed: 32400
+  slowdownDistance: 0.6
+  pickNextWaypointDist: 2
+  endReachedDistance: 0.2
+  alwaysDrawGizmos: 0
+  slowWhenNotFacingTarget: 1
+  whenCloseToDestination: 0
+  constrainInsideGraph: 0
   requests:
   - {fileID: 4776630397656086714, guid: ea44f31e82b84c24782efb795a0d4e47, type: 3}
   - {fileID: 0}
   - {fileID: 6960952728493962041, guid: 32c2faee5528fd44c8249da5e99637a5, type: 3}
   requestContainer: {fileID: 1705186484400940896}
   view: {fileID: 5856295519299688521}
+  randomPathAI: {fileID: 5740505548993235693}
   AreaType: 0
   Request: {fileID: 0}
+  State: 0
 --- !u!61 &7824737202390320206
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -286,6 +321,63 @@ MonoBehaviour:
   renderer: {fileID: 5459941148890882710}
   angryObject: {fileID: 1959228494814123492}
   walkAnimator: {fileID: 8341007061800483387}
+--- !u!114 &396266038534050698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5036940729964663491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77f586f285b3847808d79083bd19ef1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  unwrap: 1
+  splitAtEveryPortal: 0
+--- !u!114 &8869153761046336513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5036940729964663491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  drawGizmos: 1
+  detailedGizmos: 0
+  startEndModifier:
+    addPoints: 0
+    exactStartPoint: 3
+    exactEndPoint: 3
+    useRaycasting: 0
+    mask:
+      serializedVersion: 2
+      m_Bits: 4294967295
+    useGraphRaycasting: 0
+  traversableTags: -1
+  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask:
+    value: -1
+--- !u!114 &5740505548993235693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5036940729964663491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5862d965e0ba59e499f4cbd600a86701, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  searchLength: 2000
+  spread: 2000
 --- !u!1 &6172845400136211534
 GameObject:
   m_ObjectHideFlags: 0
@@ -358,7 +450,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -878917351
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
