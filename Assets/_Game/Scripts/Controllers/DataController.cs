@@ -29,9 +29,7 @@ namespace _Game.Scripts
 
         public CatData GetRandomCat()
         {
-            // return Cats[Random.Range(0, Cats.Count)];
-            // 4
-            return Cats[9];
+            return Cats[Random.Range(0, Cats.Count)];
         }
 
         public int GetPositiveCount(int dayIndex)
@@ -53,6 +51,29 @@ namespace _Game.Scripts
         {
             PlayerPrefs.SetInt($"Day{dayIndex}Negative", count);
         }
+
+        public int GetTotalPositiveCount()
+        {
+            int result = 0;
+            for (int i = 0; i <= DayIndex; i++)
+            {
+                result += GetPositiveCount(i);
+            }
+            
+            return result;
+        }
+        
+        public int GetTotalNegativeCount()
+        {
+            int result = 0;
+            for (int i = 0; i <= DayIndex; i++)
+            {
+                result += GetNegativeCount(i);
+            }
+            
+            return result;
+        }
+
 
         [Button]
         public void ClearData()

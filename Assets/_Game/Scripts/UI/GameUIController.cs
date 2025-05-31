@@ -32,7 +32,7 @@ namespace _Game.Scripts
 
         private void OnGameOver()
         {
-            _dataController.ClearData();
+            gameOverPanelView.Show();
         }
 
         [Button]

@@ -4,13 +4,12 @@ using _Game.Enums;
 using Cysharp.Threading.Tasks;
 using GamePlay.Components;
 using Sirenix.OdinInspector;
-using Unity.VisualScripting;
 using UnityEngine;
 using Zenject;
 
 namespace _Game.Scripts
 {
-    public class Cat : PathfActor
+    public class Cat : PathfActor, IDisposable
     {
         [SerializeField] private List<BaseRequest> requests;
         [SerializeField] private Transform requestContainer;
@@ -39,7 +38,7 @@ namespace _Game.Scripts
             view.Flip(nextPosition.x > transform.position.x);
         }
 
-    
+
         public void ChangeState(CatState state)
         {
             State = state;
@@ -51,7 +50,8 @@ namespace _Game.Scripts
             ChangeState(CatState.Happy);
             ResetRequest();
 
-            await UniTask.Delay(TimeSpan.FromSeconds(1));
+            await UniTask.Delay(TimeSpan.FromSeconds(1),
+                cancellationToken: destroyCancellationToken);
             GoRandomPath();
         }
 
@@ -60,14 +60,17 @@ namespace _Game.Scripts
             ChangeState(CatState.Angry);
             ResetRequest();
 
-            await UniTask.Delay(TimeSpan.FromSeconds(1));
+            await UniTask.Delay(TimeSpan.FromSeconds(1),
+                cancellationToken: destroyCancellationToken);
             GoRandomPath();
         }
 
         public async UniTask NextRequest()
         {
             ChangeState(CatState.Default);
-            await UniTask.Delay(TimeSpan.FromSeconds(_dataController.Day.GetRequestWaitDuration()));
+
+            await UniTask.Delay(TimeSpan.FromSeconds(_dataController.Day.GetRequestWaitDuration()),
+                cancellationToken: destroyCancellationToken);
             SetRandomRequest();
         }
 
@@ -97,15 +100,8 @@ namespace _Game.Scripts
         [Button]
         public void GoRandomPath()
         {
-            WaitAndLook().Forget();
-        }
-
-        private async UniTask WaitAndLook()
-        {
-            var previousPosX = randomPathAI.Activate().x;
+            randomPathAI.Activate();
             ChangeState(CatState.Walk);
-            await UniTask.Delay(TimeSpan.FromSeconds(.1f));
-            // view.Flip(previousPosX < this.transform.position.x);
         }
 
         public override void OnTargetReached()
@@ -135,6 +131,12 @@ namespace _Game.Scripts
             {
                 AreaType = AreaType.Outside;
             }
+        }
+
+        public void Dispose()
+        {
+            randomPathAI?.Dispose();
+            ResetRequest();
         }
     }
 }

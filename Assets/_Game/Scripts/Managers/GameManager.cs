@@ -1,4 +1,5 @@
 using System;
+using System.Threading;
 using _Game.Signals;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
@@ -18,6 +19,9 @@ namespace _Game.Scripts.Managers
 
         public float MaxStress;
         public float CurrentStress;
+        public bool IsGameOver;
+        
+        private CancellationTokenSource _cancellationTokenSource;
 
         private void Awake()
         {
@@ -26,6 +30,7 @@ namespace _Game.Scripts.Managers
 
         public void StartGame()
         {
+            _cancellationTokenSource = new CancellationTokenSource();
             _dataController.Initialize();
             _gameUIController.Initialize();
             _spawnController.Initialize().Forget();
@@ -76,9 +81,12 @@ namespace _Game.Scripts.Managers
                 {
                     _gameUIController.SetDayIndicator(seconds);
                 });  
-                await UniTask.Delay(TimeSpan.FromSeconds(1));
+                await UniTask.Delay(TimeSpan.FromSeconds(1), cancellationToken: _cancellationTokenSource.Token);
             }
 
+            if (_cancellationTokenSource.IsCancellationRequested || IsGameOver)
+                return;
+            
             OnDayTimeFinished();
         }
 
@@ -86,13 +94,16 @@ namespace _Game.Scripts.Managers
         {
             while (true)
             {
-                await UniTask.Delay(TimeSpan.FromSeconds(1));
+                await UniTask.Delay(TimeSpan.FromSeconds(1), cancellationToken: _cancellationTokenSource.Token);
                 IncreaseStress(_dataController.Day.TimeIncreaseStress);
                 if (CurrentStress >= MaxStress)
                 {
                     break;
                 }
             }
+            
+            if (_cancellationTokenSource.IsCancellationRequested || IsGameOver)
+                return;
 
             GameOver();
         }
@@ -129,7 +140,7 @@ namespace _Game.Scripts.Managers
 
         public void OnDayTimeFinished()
         {
-            if (CurrentStress < MaxStress)
+            if (CurrentStress < MaxStress && _dataController.DayIndex < 6)
             {
                 _signalBus.Fire<GameSignals.OnNextDay>();
             }
@@ -139,30 +150,23 @@ namespace _Game.Scripts.Managers
             }
         }
 
-        public void ClearLevel()
-        {
-            _dataController.DayIndex++;
-
-            if (_dataController.DayIndex >= 6)
-            {
-                // High Score goster
-
-                // _dataController.DayIndex = 0;
-            }
-            else
-            {
-                SceneManager.LoadScene(1);
-            }
-        }
-
+        [Button]
         public void GameOver()
         {
+            if (IsGameOver)
+                return;
+            
             Debug.Log("GameOver");
+            IsGameOver = true;
+            Dispose();
+            _cancellationTokenSource.Cancel();
+            _signalBus.Fire<GameSignals.OnGameOver>();
         }
 
         public void Dispose()
         {
             UnsubscribeSignals();
+            _spawnController.Dispose();
         }
     }
 }

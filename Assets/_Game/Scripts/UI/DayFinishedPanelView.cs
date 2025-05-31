@@ -2,6 +2,7 @@ using System;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Zenject;
 
 namespace _Game.Scripts
@@ -10,8 +11,7 @@ namespace _Game.Scripts
     {
         public CanvasGroup canvasGroup;
         public TextMeshProUGUI dayText;
-        public TextMeshProUGUI positiveText;
-        public TextMeshProUGUI negativeText;
+        public TextMeshProUGUI scoreText;
         
         [Inject] private DataController dataController;
         
@@ -23,22 +23,23 @@ namespace _Game.Scripts
         public void Show()
         {
             canvasGroup.interactable = true;
-            canvasGroup.DOFade(1, 0.5f).SetEase(Ease.OutBounce).OnComplete(() =>
-            {
-                SetupPanel();
-            });
+            canvasGroup.blocksRaycasts = true;
+            SetupPanel();
+            canvasGroup.DOFade(1, 1f).SetEase(Ease.Linear);
         }
 
         private void SetupPanel()
         {
-            dayText.text = $"Day - {dataController.DayIndex + 1}";
-            positiveText.text = dataController.GetPositiveCount(dataController.DayIndex).ToString();
-            negativeText.text = dataController.GetNegativeCount(dataController.DayIndex).ToString();
+            dayText.text = $"DAY - {dataController.DayIndex + 1} COMPLETED";
+            scoreText.text = dataController.GetPositiveCount(dataController.DayIndex).ToString();
+            scoreText.text += "-";
+            scoreText.text += dataController.GetNegativeCount(dataController.DayIndex).ToString();
         }
 
         public void OnNextDayClicked()
         {
             dataController.DayIndex++;
+            SceneManager.LoadScene(1);
         }
         
     }

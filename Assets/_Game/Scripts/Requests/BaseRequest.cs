@@ -8,7 +8,7 @@ using Zenject;
 
 namespace _Game.Scripts
 {
-    public abstract class BaseRequest : MonoBehaviour
+    public abstract class BaseRequest : MonoBehaviour,IDisposable
     {
         [SerializeField] protected RequestView requestView;
 
@@ -48,5 +48,10 @@ namespace _Game.Scripts
         public abstract void Solve();
 
         public bool IsValid() => Player.ActiveRequest == Type;
+
+        public void Dispose()
+        {
+            
+        }
     }
 }

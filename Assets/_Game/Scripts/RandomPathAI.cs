@@ -16,7 +16,10 @@ public class RandomPathAI : MonoBehaviour,IDisposable
     public void Cancel()
     {
         isActive = false;
-        cancellationTokenSource.Cancel();
+        cancellationTokenSource?.Cancel();
+        if (ai == null)
+            return;
+        
         ai.canMove = false;
     }
 
@@ -63,6 +66,6 @@ public class RandomPathAI : MonoBehaviour,IDisposable
     public void Dispose()
     {
         Cancel();
-        cancellationTokenSource.Cancel();
+        cancellationTokenSource?.Cancel();
     }
 }
