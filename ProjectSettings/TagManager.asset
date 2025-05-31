@@ -50,12 +50,15 @@ TagManager:
   - name: Back
     uniqueID: 2326278913
     locked: 0
-  - name: UI
-    uniqueID: 3189913561
-    locked: 0
   - name: Entity
     uniqueID: 3416049945
     locked: 0
+  - name: UI
+    uniqueID: 3189913561
+    locked: 0
   - name: Hand
     uniqueID: 1716043459
+    locked: 0
+  - name: Dark
+    uniqueID: 3909132913
     locked: 0

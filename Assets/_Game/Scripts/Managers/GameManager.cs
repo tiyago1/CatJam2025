@@ -49,11 +49,13 @@ namespace _Game.Scripts.Managers
 
         private void OnSuccessRequest(GameSignals.OnSuccessRequest obj)
         {
+            Debug.Log($"OnSuccessRequest");
             DecreaseStress(_dataController.Day.SuccessStress);
         }
 
         private void OnFailRequest(GameSignals.OnFailRequest obj)
         {
+            Debug.Log($"OnFailRequest:");
             IncreaseStress(_dataController.Day.FailStress);
         }
 
@@ -67,11 +69,17 @@ namespace _Game.Scripts.Managers
 
         private async UniTask GetStress()
         {
-            for (int i = 0; i < (int)_dataController.Day.Duration; i++)
+            while (true)
             {
                 await UniTask.Delay(TimeSpan.FromSeconds(1));
                 IncreaseStress(_dataController.Day.TimeIncreaseStress);
+                if (CurrentStress >= MaxStress)
+                {
+                    break;
+                }
             }
+
+            GameOver();
         }
 
         [Button]

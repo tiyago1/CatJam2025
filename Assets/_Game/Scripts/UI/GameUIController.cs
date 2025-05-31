@@ -1,3 +1,4 @@
+using _Game.Signals;
 using DG.Tweening;
 using Sirenix.OdinInspector;
 using TMPro;
@@ -12,16 +13,24 @@ namespace _Game.Scripts
         [SerializeField] private ClassicProgressBar stressSlider;
         [SerializeField] private RectTransform dayIndicator;
         [SerializeField] private TextMeshProUGUI dayText;
-        
+        [SerializeField] private GameOverPanelView gameOverPanelView;
+
         [SerializeField] private float minRotation;
         [SerializeField] private float maxRotation;
 
-        [Inject] private DataController _dataController; 
-        
+        [Inject] private DataController _dataController;
+        [Inject] private SignalBus _signalBus;
+
         public void Initialize()
         {
             SetDayIndicator(1);
             dayText.text = $"Day - {_dataController.DayIndex + 1}";
+            _signalBus.Subscribe<GameSignals.OnGameOver>(OnGameOver);
+        }
+
+        private void OnGameOver()
+        {
+            throw new System.NotImplementedException();
         }
 
         [Button]
@@ -34,9 +43,23 @@ namespace _Game.Scripts
         [Button]
         public void SetStress(float value)
         {
-            
             stressSlider.FillAmount = value;
+                gameOverPanelView.SetGameOverDarkness(value);
+            // if (value > .5f)
+            // {
+            //     var darkneessValue = ReRangeValue(value - .5f, 0, .5f, 0, 1);
+            //
+            //     Debug.Log(value + " " + darkneessValue);
+            // }
+            // else
+            // {
+            //     gameOverPanelView.SetGameOverDarkness(0);
+            // }
         }
-        
+
+        private float ReRangeValue(float value, float oldMin, float oldMax, float newMin, float newMax)
+        {
+            return newMin + (value - oldMin) * (newMax - newMin) / (oldMax - oldMin);
+        }
     }
 }

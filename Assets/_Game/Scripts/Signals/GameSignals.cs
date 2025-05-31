@@ -11,5 +11,15 @@
         {
             
         }
+
+        public struct OnGameOver
+        {
+            
+        }
+
+        public struct OnGameWon
+        {
+            
+        }
     }
 }

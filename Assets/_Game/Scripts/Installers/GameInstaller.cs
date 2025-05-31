@@ -10,6 +10,8 @@ namespace Game.Installers
             SignalBusInstaller.Install(Container);
             Container.DeclareSignal<GameSignals.OnFailRequest>().OptionalSubscriber();
             Container.DeclareSignal<GameSignals.OnSuccessRequest>().OptionalSubscriber();
+            Container.DeclareSignal<GameSignals.OnGameOver>().OptionalSubscriber();
+            Container.DeclareSignal<GameSignals.OnGameWon>().OptionalSubscriber();
         }
     }
 }

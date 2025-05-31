@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: eae50c59a70a55e4e9d3a8420de07fb2
+guid: 2b5a3f0221c5f604fb909edd009fa722
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -121,133 +121,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: Cat1_Walkcycle_0
-      rect:
-        serializedVersion: 2
-        x: 38
-        y: 3
-        width: 194
-        height: 147
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b1b72cdfb39d1c34dbae8369f13efd94
-      internalID: 1470529674
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cat1_Walkcycle_1
-      rect:
-        serializedVersion: 2
-        x: 333
-        y: 0
-        width: 192
-        height: 147
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d3e1fab3d85b6ba4f87ef02dae9632ba
-      internalID: 1388027749
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cat1_Walkcycle_2
-      rect:
-        serializedVersion: 2
-        x: 647
-        y: 2
-        width: 195
-        height: 147
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0ea28fccce0fc26409ed025fd28473c3
-      internalID: -1593586383
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cat1_Walkcycle_3
-      rect:
-        serializedVersion: 2
-        x: 971
-        y: 0
-        width: 193
-        height: 148
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e752d163cf4998f4283e517d73afec5c
-      internalID: -416026841
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cat1_Walkcycle_4
-      rect:
-        serializedVersion: 2
-        x: 1273
-        y: 1
-        width: 190
-        height: 147
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4fe5596a8dee46a41b036fed77d765a2
-      internalID: 1967550190
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cat1_Walkcycle_5
-      rect:
-        serializedVersion: 2
-        x: 1557
-        y: 0
-        width: 196
-        height: 148
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8740a4388b34df6429bc2a6f58e1b097
-      internalID: -70776689
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -258,13 +132,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      Cat1_Walkcycle_0: 1470529674
-      Cat1_Walkcycle_1: 1388027749
-      Cat1_Walkcycle_2: -1593586383
-      Cat1_Walkcycle_3: -416026841
-      Cat1_Walkcycle_4: 1967550190
-      Cat1_Walkcycle_5: -70776689
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

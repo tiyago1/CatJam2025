@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using _Game.Data;
 using _Game.Scripts.Data;
 using UnityEngine;
 
@@ -6,6 +7,7 @@ namespace _Game.Scripts
 {
     public class DataController : MonoBehaviour
     {
+        public List<CatData> Cats;
         public List<DayData> Days;
         public DayData Day;
 
@@ -25,6 +27,12 @@ namespace _Game.Scripts
         public void Initialize()
         {
             Day = Instantiate(Days[DayIndex]);
+        }
+
+        public CatData GetRandomCat()
+        {
+            // return Cats[Random.Range(0, Cats.Count)];
+            return Cats[2];
         }
     }
 }

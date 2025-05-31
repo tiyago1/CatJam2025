@@ -1,8 +1,11 @@
 using System;
 using System.Data.Common;
 using _Game.Enums;
+using _Game.Signals;
+using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using Sirenix.OdinInspector;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using Zenject;
@@ -36,6 +39,17 @@ namespace _Game.Scripts
 
         public override void Solve()
         {
+            if (Cat.AreaType == AreaType)
+            {
+                Cat.Approved().Forget();
+                SignalBus.Fire<GameSignals.OnSuccessRequest>();
+                
+            }
+            else
+            {
+                Cat.Decline().Forget();
+                SignalBus.Fire<GameSignals.OnFailRequest>();
+            }
         }
 
         public void OnPointerDown(PointerEventData eventData)
@@ -95,6 +109,7 @@ namespace _Game.Scripts
       
             _isDragging = false;
             Cat.transform.DOMove(pos, .1f);
+            Solve();
         }
 
         private AreaType GetClosetAreaType()
