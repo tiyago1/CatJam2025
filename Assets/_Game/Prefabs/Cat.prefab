@@ -320,7 +320,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   renderer: {fileID: 5459941148890882710}
   angryObject: {fileID: 1959228494814123492}
-  walkAnimator: {fileID: 8341007061800483387}
+  walkAnimator: {fileID: 8664581904573261233}
   walkSpriteRenderer: {fileID: 7179795276324542037}
 --- !u!114 &396266038534050698
 MonoBehaviour:
@@ -389,7 +389,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6636707149636408389}
   - component: {fileID: 7179795276324542037}
-  - component: {fileID: 8341007061800483387}
+  - component: {fileID: 8664581904573261233}
   m_Layer: 0
   m_Name: Walk
   m_TagString: Untagged
@@ -464,7 +464,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &8341007061800483387
+--- !u!95 &8664581904573261233
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
