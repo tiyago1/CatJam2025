@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1817429508438069210, guid: 130989c0ee4c03c4fa479251e61a9435, type: 3}
       propertyPath: m_Name
-      value: Food01
+      value: Food03
       objectReference: {fileID: 0}
     - target: {fileID: 1932279380771027614, guid: 130989c0ee4c03c4fa479251e61a9435, type: 3}
       propertyPath: m_LocalPosition.x
@@ -52,20 +52,24 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3366641895784006053, guid: 130989c0ee4c03c4fa479251e61a9435, type: 3}
-      propertyPath: m_Color.b
-      value: 0
+    - target: {fileID: 3287755634232368214, guid: 130989c0ee4c03c4fa479251e61a9435, type: 3}
+      propertyPath: Type
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3366641895784006053, guid: 130989c0ee4c03c4fa479251e61a9435, type: 3}
-      propertyPath: m_Color.g
-      value: 0
+      propertyPath: m_Size.x
+      value: 0.85
       objectReference: {fileID: 0}
     - target: {fileID: 3366641895784006053, guid: 130989c0ee4c03c4fa479251e61a9435, type: 3}
-      propertyPath: m_Color.r
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ffbffa8f8f458b442be0b3bfc344f443, type: 3}
+    - target: {fileID: 3366641895784006053, guid: 130989c0ee4c03c4fa479251e61a9435, type: 3}
+      propertyPath: m_SortingLayer
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3366641895784006053, guid: 130989c0ee4c03c4fa479251e61a9435, type: 3}
-      propertyPath: m_SortingLayer
+      propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -16,6 +16,11 @@ namespace _Game.Scripts
             _position = Vector3.zero;
         }
 
+        public void ChangeRequest(RequestType request)
+        {
+            ActiveRequest = request;
+        }
+
         public void SetActiveFood(Food food)
         {
             ClearFood();

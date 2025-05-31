@@ -19,6 +19,7 @@ namespace _Game.Enums
 
     public enum AreaType
     {
+        Outside = -1,
         Dark,
         Main,
         Garden

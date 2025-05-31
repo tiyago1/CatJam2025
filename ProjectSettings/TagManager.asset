@@ -6,6 +6,10 @@ TagManager:
   tags:
   - ship
   - asteroid
+  - Main
+  - Garden
+  - Dark
+  - Outside
   layers:
   - Default
   - TransparentFX
@@ -13,8 +17,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Area
+  - Entity
   - 
   - 
   - 
@@ -43,6 +47,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Back
+    uniqueID: 2326278913
+    locked: 0
   - name: Hand
     uniqueID: 1716043459
+    locked: 0
+  - name: UI
+    uniqueID: 3189913561
+    locked: 0
+  - name: Entity
+    uniqueID: 3416049945
     locked: 0

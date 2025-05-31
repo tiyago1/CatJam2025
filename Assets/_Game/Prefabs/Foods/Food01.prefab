@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1817429508438069210, guid: 130989c0ee4c03c4fa479251e61a9435, type: 3}
       propertyPath: m_Name
-      value: Food02
+      value: Food01
       objectReference: {fileID: 0}
     - target: {fileID: 1932279380771027614, guid: 130989c0ee4c03c4fa479251e61a9435, type: 3}
       propertyPath: m_LocalPosition.x
@@ -52,22 +52,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3287755634232368214, guid: 130989c0ee4c03c4fa479251e61a9435, type: 3}
-      propertyPath: Type
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3366641895784006053, guid: 130989c0ee4c03c4fa479251e61a9435, type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3366641895784006053, guid: 130989c0ee4c03c4fa479251e61a9435, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3366641895784006053, guid: 130989c0ee4c03c4fa479251e61a9435, type: 3}
-      propertyPath: m_Color.r
-      value: 0.32561243
-      objectReference: {fileID: 0}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 7ec8077452a70994c831e42b1b1517c3, type: 3}
     - target: {fileID: 3366641895784006053, guid: 130989c0ee4c03c4fa479251e61a9435, type: 3}
       propertyPath: m_SortingLayer
       value: 1
