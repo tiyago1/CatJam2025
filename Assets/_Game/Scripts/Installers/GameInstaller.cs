@@ -8,7 +8,8 @@ namespace Game.Installers
         public override void InstallBindings()
         {
             SignalBusInstaller.Install(Container);
-            Container.DeclareSignal<GameSignals.OnCameraLeft>().OptionalSubscriber();
+            Container.DeclareSignal<GameSignals.OnFailRequest>().OptionalSubscriber();
+            Container.DeclareSignal<GameSignals.OnSuccessRequest>().OptionalSubscriber();
         }
     }
 }

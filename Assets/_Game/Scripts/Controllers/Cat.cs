@@ -42,6 +42,7 @@ namespace _Game.Scripts
 
         public void Initialize()
         {
+            SetRequestType(RequestType.Food);
         }
 
         [Button]

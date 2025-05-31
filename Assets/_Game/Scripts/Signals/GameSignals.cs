@@ -2,12 +2,12 @@
 {
     public static class GameSignals
     {
-        public struct OnCameraLeft
+        public struct OnFailRequest
         {
             
         }
         
-        public struct OnCameraRight
+        public struct OnSuccessRequest
         {
             
         }

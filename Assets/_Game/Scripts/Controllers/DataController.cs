@@ -1,23 +1,30 @@
+using System.Collections.Generic;
+using _Game.Scripts.Data;
 using UnityEngine;
 
 namespace _Game.Scripts
 {
     public class DataController : MonoBehaviour
     {
-        public float MinRequestDuration = 2;
-        public float MaxRequestDuration = 5;
-        
-        public float MinWaitRequestDuration = 2;
-        public float MaxWaitRequestDuration = 5;
+        public List<DayData> Days;
+        public DayData Day;
 
-        public float GetRequestDuration()
+        public int DayIndex
         {
-            return Random.Range(MinRequestDuration, MaxRequestDuration);
+            get
+            {
+                return PlayerPrefs.GetInt("Day", 0);
+            }
+            set
+            {
+                 PlayerPrefs.SetInt("Day", value);
+                 PlayerPrefs.Save();
+            }
         }
         
-        public float GetRequestWaitDuration()
+        public void Initialize()
         {
-            return Random.Range(MinWaitRequestDuration, MaxWaitRequestDuration);
+            Day = Instantiate(Days[DayIndex]);
         }
     }
 }

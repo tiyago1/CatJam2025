@@ -21,13 +21,13 @@ namespace _Game.Scripts
         public virtual void Initialize(Cat cat)
         {
             Cat = cat;
-            requestView.StartTimer(_dataController.GetRequestDuration());
+            requestView.StartTimer(_dataController.Day.GetRequestDuration());
             StartTimer();
         }
 
         private void StartTimer()
         {
-           _timer=  DOVirtual.Float(0, 1, _dataController.GetRequestDuration(), requestView.ProgressBar.SetFillAmount)
+           _timer=  DOVirtual.Float(0, 1, _dataController.Day.GetRequestDuration(), requestView.ProgressBar.SetFillAmount)
                 .SetEase(Ease.Linear)
                 .OnStepComplete(() => OnTimeCompleted().Forget())
                 .SetDelay(.1f);
@@ -41,7 +41,7 @@ namespace _Game.Scripts
         protected virtual async UniTask OnTimeCompleted()
         {
             await UniTask.Delay(TimeSpan.FromSeconds(.2f));
-            await UniTask.Delay(TimeSpan.FromSeconds(_dataController.GetRequestWaitDuration()));
+            await UniTask.Delay(TimeSpan.FromSeconds(_dataController.Day.GetRequestWaitDuration()));
             Cat.OnTimeCompleted();
         }
 
