@@ -24,6 +24,7 @@ namespace _Game.Scripts
         [Inject] private DiContainer _container;
         [Inject] private DataController _dataController;
 
+
         public void Initialize()
         {
             SetRandomRequest();
@@ -31,15 +32,14 @@ namespace _Game.Scripts
             view.Initialize(_dataController.GetRandomCat());
         }
 
-        protected override void Update()
+        protected override void MovementUpdateInternal(float deltaTime, out Vector3 nextPosition,
+            out Quaternion nextRotation)
         {
-            base.Update();
-            if (Input.GetKeyDown(KeyCode.Z))
-            {
-                GoRandomPath();
-            }
+            base.MovementUpdateInternal(deltaTime, out nextPosition, out nextRotation);
+            view.Flip(nextPosition.x > transform.position.x);
         }
 
+    
         public void ChangeState(CatState state)
         {
             State = state;
@@ -94,7 +94,6 @@ namespace _Game.Scripts
             Request = null;
         }
 
-
         [Button]
         public void GoRandomPath()
         {
@@ -103,10 +102,10 @@ namespace _Game.Scripts
 
         private async UniTask WaitAndLook()
         {
-            var previousPosX =  randomPathAI.Activate().x;
+            var previousPosX = randomPathAI.Activate().x;
             ChangeState(CatState.Walk);
             await UniTask.Delay(TimeSpan.FromSeconds(.1f));
-            view.Flip(previousPosX < this.transform.position.x);
+            // view.Flip(previousPosX < this.transform.position.x);
         }
 
         public override void OnTargetReached()
