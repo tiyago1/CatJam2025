@@ -29,7 +29,9 @@ namespace _Game.Scripts
 
         public CatData GetRandomCat()
         {
-            return Cats[Random.Range(0, Cats.Count)];
+            // return Cats[Random.Range(0, Cats.Count)];
+            // 4
+            return Cats[9];
         }
 
         public int GetPositiveCount(int dayIndex)
