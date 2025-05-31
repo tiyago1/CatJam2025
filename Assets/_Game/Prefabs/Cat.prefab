@@ -131,7 +131,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe8a2d2670fa442ca35e6eaf1c5f27d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  requests:
+  - {fileID: 4776630397656086714, guid: ea44f31e82b84c24782efb795a0d4e47, type: 3}
+  - {fileID: 0}
+  - {fileID: 6960952728493962041, guid: 32c2faee5528fd44c8249da5e99637a5, type: 3}
+  requestContainer: {fileID: 1705186484400940896}
   AreaType: 0
+  Request: {fileID: 0}
 --- !u!61 &7824737202390320206
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -71,6 +71,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 6653840089453949155}
   m_SourcePrefab: {fileID: 100100000, guid: e2f1c1fd15cf1844397a625dd2705657, type: 3}
+--- !u!114 &1294041989654378073 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6719817297160561977, guid: e2f1c1fd15cf1844397a625dd2705657, type: 3}
+  m_PrefabInstance: {fileID: 5527265224355091296}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14f8a4a7152d1f04da7535f2392f4c87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2575214396665461614 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8000703795178334222, guid: e2f1c1fd15cf1844397a625dd2705657, type: 3}
@@ -104,6 +115,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: d98e5f0d4b1455e49a6eca9b324b246e, type: 3}
   - {fileID: 21300000, guid: ffbffa8f8f458b442be0b3bfc344f443, type: 3}
   Image: {fileID: 2575214396665461614}
+  ProgressBar: {fileID: 1294041989654378073}
 --- !u!1 &7348410604087570258 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2976324019207568434, guid: e2f1c1fd15cf1844397a625dd2705657, type: 3}
@@ -121,6 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d775f4cdb674fe5b4d497a9511adaf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  requestView: {fileID: 6653840089453949155}
   Type: 0
   view: {fileID: 6653840089453949155}
   FoodType: 0

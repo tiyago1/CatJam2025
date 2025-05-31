@@ -13,14 +13,15 @@ namespace _Game.Scripts
         [Button]
         public override void Initialize(Cat cat)
         {
-            base.Initialize(cat);
-            
             FoodType = (FoodType)Random.Range(0, 3);
             view.Initialize(FoodType);
+            
+            base.Initialize(cat);
         }
 
         public override void Solve()
         {
+            CancelTimer();
             Player.ClearFood();
         }
 

@@ -12,7 +12,7 @@ namespace _Game.Scripts
 {
     public class AreaRequest : BaseRequest, IPointerDownHandler, IDragHandler, IPointerUpHandler
     {
-        [SerializeField] private AreaRequestView view;
+        private AreaRequestView view => (AreaRequestView)requestView;
         [SerializeField] private Vector2 boxSize;
 
         [Inject(Id = "Garden")] private BoxCollider2D garden;
@@ -27,10 +27,11 @@ namespace _Game.Scripts
         [Button]
         public override void Initialize(Cat cat)
         {
-            base.Initialize(cat);
-            _hits = new RaycastHit2D[10];
             AreaType = (AreaType)Random.Range(0, 3);
+            _hits = new RaycastHit2D[10];
             view.Initialize(AreaType);
+            
+            base.Initialize(cat);
         }
 
         public override void Solve()
