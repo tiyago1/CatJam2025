@@ -73,7 +73,6 @@ namespace _Game.Scripts
             if (x != null)
             {
                 position = point;
-                Debug.Log(x.gameObject.name);
             }
 
             Cat.transform.position = point;

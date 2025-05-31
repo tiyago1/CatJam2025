@@ -64,10 +64,10 @@ namespace _Game.Scripts.Managers
 
         private void StartDayTimer()
         {
-            DOVirtual.Float(0, 1, _dataController.Day.Duration,
-                    (normalizedValue) => { _gameUIController.SetDayIndicator(normalizedValue); })
-                .OnComplete(OnDayTimeFinished);
-            // GetDayTimer().Forget();
+            // DOVirtual.Float(0, 1, _dataController.Day.Duration,
+            //         (normalizedValue) => { _gameUIController.SetDayIndicator(normalizedValue); })
+            //     .OnComplete(OnDayTimeFinished);
+            GetDayTimer().Forget();
             GetStress().Forget();
         }
 
@@ -75,9 +75,13 @@ namespace _Game.Scripts.Managers
         {
             for (int i = 0; i < _dataController.Day.Duration; i++)
             {
+                float end = ReRangeValue(i+1, 0, _dataController.Day.Duration, 0, 1);
+                float start = ReRangeValue(i, 0, _dataController.Day.Duration, 0, 1);
+                DOVirtual.Float(start, end, 1, (seconds) =>
+                {
+                    _gameUIController.SetDayIndicator(seconds);
+                });  
                 await UniTask.Delay(TimeSpan.FromSeconds(1));
-                float value = ReRangeValue(i, 0, _dataController.Day.Duration, 0, 1);
-                _gameUIController.SetDayIndicator(value);
             }
 
             OnDayTimeFinished();
