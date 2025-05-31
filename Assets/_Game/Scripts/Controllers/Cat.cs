@@ -73,7 +73,7 @@ namespace _Game.Scripts
 
         public void SetRandomRequest()
         {
-            SetRequestType(RequestType.Food);
+            SetRequestType(RequestType.Area);
         }
 
         [Button]

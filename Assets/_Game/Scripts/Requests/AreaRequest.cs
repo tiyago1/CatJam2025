@@ -42,6 +42,7 @@ namespace _Game.Scripts
             if (IsRequestIgnored)
                 return;
             
+            CancelTimer();
             if (Cat.AreaType == AreaType)
             {
                 Cat.Approved().Forget();

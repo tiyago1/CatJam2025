@@ -32,10 +32,10 @@ namespace _Game.Scripts
         {
            _timer=  DOVirtual.Float(0, 1, _dataController.Day.GetRequestDuration(), requestView.ProgressBar.SetFillAmount)
                 .SetEase(Ease.Linear)
-                .OnStepComplete(() =>
+                .OnComplete(() =>
                 {
-                    Cat.Decline().Forget();
-                    SignalBus.Fire<GameSignals.OnFailRequest>();
+                     Cat.Decline().Forget();
+                     SignalBus.Fire<GameSignals.OnFailRequest>();
                 })
                 .SetDelay(.1f);
         }
