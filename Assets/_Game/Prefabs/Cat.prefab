@@ -321,6 +321,7 @@ MonoBehaviour:
   renderer: {fileID: 5459941148890882710}
   angryObject: {fileID: 1959228494814123492}
   walkAnimator: {fileID: 8341007061800483387}
+  walkSpriteRenderer: {fileID: 7179795276324542037}
 --- !u!114 &396266038534050698
 MonoBehaviour:
   m_ObjectHideFlags: 0

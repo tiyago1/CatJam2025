@@ -16,7 +16,7 @@ namespace _Game.Scripts
         [SerializeField] private Transform requestContainer;
         [SerializeField] public CatView view;
         [SerializeField] private RandomPathAI randomPathAI;
-        
+
         public AreaType AreaType;
         public BaseRequest Request;
         public CatState State;
@@ -30,7 +30,6 @@ namespace _Game.Scripts
 
             view.Initialize(_dataController.GetRandomCat());
         }
-
 
         protected override void Update()
         {
@@ -76,7 +75,7 @@ namespace _Game.Scripts
         {
             SetRequestType(RequestType.Food);
         }
-        
+
         [Button]
         public void SetRequestType(RequestType requestType)
         {
@@ -99,7 +98,15 @@ namespace _Game.Scripts
         [Button]
         public void GoRandomPath()
         {
-            randomPathAI. Activate();
+            WaitAndLook().Forget();
+        }
+
+        private async UniTask WaitAndLook()
+        {
+            var previousPosX =  randomPathAI.Activate().x;
+            ChangeState(CatState.Walk);
+            await UniTask.Delay(TimeSpan.FromSeconds(.1f));
+            view.Flip(previousPosX < this.transform.position.x);
         }
 
         public override void OnTargetReached()

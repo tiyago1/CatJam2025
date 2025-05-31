@@ -20,13 +20,14 @@ public class RandomPathAI : MonoBehaviour,IDisposable
         ai.canMove = false;
     }
 
-    public void Activate()
+    public Vector3 Activate()
     {
         isActive = true;
         ai = GetComponent<IAstarAI>();
         ai.canMove = true;
         cancellationTokenSource = new CancellationTokenSource();
-        MoveRandomPath();
+        
+        return MoveRandomPath();
     }
 
     private async UniTaskVoid RunAI()
@@ -45,7 +46,7 @@ public class RandomPathAI : MonoBehaviour,IDisposable
         }
     }
 
-    public void MoveRandomPath()
+    public Vector3 MoveRandomPath()
     {
         if (!ai.pathPending && (ai.reachedEndOfPath || !ai.hasPath))
         {
@@ -53,7 +54,10 @@ public class RandomPathAI : MonoBehaviour,IDisposable
             RandomPath path = RandomPath.Construct(transform.position, searchLength);
             path.spread = spread;
             ai.SetPath(path);
+            return path.endPoint;
         }
+
+        return Vector3.zero;
     }
     
     public void Dispose()

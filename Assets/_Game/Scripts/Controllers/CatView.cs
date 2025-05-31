@@ -18,7 +18,8 @@ namespace _Game.Scripts
         [SerializeField] private SpriteRenderer renderer;
         [SerializeField] private GameObject angryObject;
         [SerializeField] private Animator walkAnimator;
-
+        [SerializeField] private SpriteRenderer walkSpriteRenderer;
+        
         private CatData _data;
 
         public void Initialize(CatData catData)
@@ -56,6 +57,11 @@ namespace _Game.Scripts
                     renderer.sprite = _data.Idle;
                     break;
             }
+        }
+
+        public void Flip(bool isRight)
+        {
+            walkSpriteRenderer.flipX = isRight;
         }
     }
 }
