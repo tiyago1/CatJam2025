@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CatCount: 5
   Duration: 30
-  FailStress: 3
-  SuccessStress: 2
+  FailStress: 25
+  SuccessStress: 10
   MaxStress: 100
   TimeIncreaseStress: 2
   MinRequestDuration: 2

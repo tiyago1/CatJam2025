@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CatCount: 5
   Duration: 30
-  FailStress: 15
+  FailStress: 25
   SuccessStress: 10
   MaxStress: 100
   TimeIncreaseStress: 1
   MinRequestDuration: 5
   MaxRequestDuration: 12
-  MinWaitRequestDuration: 3
+  MinWaitRequestDuration: 2
   MaxWaitRequestDuration: 5
   CatTypes: 000000000000000002000000
