@@ -14,9 +14,9 @@ namespace _Game.Scripts
 
         public void OnPointerDown(PointerEventData eventData)
         {
-            player.ChangeRequest(RequestType.Food);
             player.SetActiveFood(food);
             soundContoller.PlayClickSound();
+            player.ChangeRequest(RequestType.Food);
         }
     }
 }
