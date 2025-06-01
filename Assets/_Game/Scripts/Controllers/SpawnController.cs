@@ -39,7 +39,7 @@ namespace _Game.Scripts
             for (int i = 0; i < _dataController.Day.CatCount; i++)
             {
                 Spawn();
-                await UniTask.Delay(TimeSpan.FromSeconds(Random.Range(0.2f, 1f)));
+                await UniTask.Delay(TimeSpan.FromSeconds(Random.Range(0.2f, .7f)));
             }
         }
 

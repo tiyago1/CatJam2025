@@ -10,11 +10,13 @@ namespace _Game.Scripts
         [SerializeField] private Food food;
         
         [Inject] private PlayerController player;
+        [Inject] private SoundContoller soundContoller;
 
         public void OnPointerDown(PointerEventData eventData)
         {
             player.ChangeRequest(RequestType.Food);
             player.SetActiveFood(food);
+            soundContoller.PlayClickSound();
         }
     }
 }

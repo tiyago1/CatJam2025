@@ -14,6 +14,7 @@ namespace _Game.Scripts
         public TextMeshProUGUI scoreText;
         
         [Inject] private DataController dataController;
+        [Inject] private SoundContoller soundContoller;
         
         public void Awake()
         {
@@ -39,6 +40,7 @@ namespace _Game.Scripts
         public void OnNextDayClicked()
         {
             dataController.DayIndex++;
+            soundContoller.PlayClickSound();
             SceneManager.LoadScene(1);
         }
         

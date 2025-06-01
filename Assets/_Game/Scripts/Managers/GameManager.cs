@@ -5,7 +5,6 @@ using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using Sirenix.OdinInspector;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using Zenject;
 
 namespace _Game.Scripts.Managers

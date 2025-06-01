@@ -15,6 +15,7 @@ namespace _Game.Scripts
         [Inject] private DataController _dataController;
         [Inject] protected PlayerController Player;
         [Inject] protected SignalBus SignalBus;
+        [Inject] protected SoundContoller SoundContoller;
 
         public RequestType Type;
         protected Cat Cat;

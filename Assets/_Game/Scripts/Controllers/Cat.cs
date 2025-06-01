@@ -16,13 +16,15 @@ namespace _Game.Scripts
         [SerializeField] private Transform requestContainer;
         [SerializeField] public CatView view;
         [SerializeField] private RandomPathAI randomPathAI;
-
+        [SerializeField] private AudioSource source;
+        
         public AreaType AreaType;
         public BaseRequest Request;
         public CatState State;
 
         [Inject] private DiContainer _container;
         [Inject] private DataController _dataController;
+        [Inject] private SoundContoller _soundContoller;
 
         public void Initialize()
         {
@@ -47,7 +49,8 @@ namespace _Game.Scripts
         {
             ChangeState(CatState.Happy);
             ResetRequest();
-
+            _soundContoller.PlaySoundVFX(source,SoundType.Success);
+            
             await UniTask.Delay(TimeSpan.FromSeconds(1),
                 cancellationToken: destroyCancellationToken);
             GoRandomPath();
@@ -57,7 +60,8 @@ namespace _Game.Scripts
         {
             ChangeState(CatState.Angry);
             ResetRequest();
-
+            _soundContoller.PlaySoundVFX(source,SoundType.Fail);
+            
             await UniTask.Delay(TimeSpan.FromSeconds(1),
                 cancellationToken: destroyCancellationToken);
             GoRandomPath();
@@ -75,6 +79,8 @@ namespace _Game.Scripts
         public void SetRandomRequest()
         {
             var request = Random.Range(0, requests.Count);
+            request = _dataController.Day.CatTypes[request];
+            
             SetRequestType((RequestType)request);
         }
 
@@ -137,5 +143,6 @@ namespace _Game.Scripts
             randomPathAI?.Dispose();
             ResetRequest();
         }
+        
     }
 }

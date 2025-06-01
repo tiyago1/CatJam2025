@@ -15,10 +15,11 @@ MonoBehaviour:
   CatCount: 5
   Duration: 30
   FailStress: 25
-  SuccessStress: 50
+  SuccessStress: 10
   MaxStress: 100
   TimeIncreaseStress: 2
   MinRequestDuration: 15
   MaxRequestDuration: 30
   MinWaitRequestDuration: 2
   MaxWaitRequestDuration: 5
+  CatTypes: 020000000200000002000000

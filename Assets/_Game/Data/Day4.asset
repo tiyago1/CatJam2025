@@ -22,3 +22,4 @@ MonoBehaviour:
   MaxRequestDuration: 5
   MinWaitRequestDuration: 2
   MaxWaitRequestDuration: 5
+  CatTypes: 000000000100000002000000

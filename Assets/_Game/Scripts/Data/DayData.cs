@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace _Game.Scripts.Data
@@ -17,6 +18,8 @@ namespace _Game.Scripts.Data
         
         public float MinWaitRequestDuration = 2;
         public float MaxWaitRequestDuration = 5;
+
+        public List<int> CatTypes;
 
         public float GetRequestDuration()
         {

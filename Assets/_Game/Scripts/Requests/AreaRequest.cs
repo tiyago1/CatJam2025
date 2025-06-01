@@ -70,12 +70,13 @@ namespace _Game.Scripts
             if (!_isDragging)
                 return;
 
-
             if (!_isHolded)
             {
                 Cat.ChangeState(CatState.Hold);
+                SoundContoller.PlayClickSound();
             }
-            
+
+            _isHolded = true;
             var point = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             point.z = 0;
 
@@ -117,6 +118,7 @@ namespace _Game.Scripts
                 pos = position;
             }
       
+            SoundContoller.PlayClickSound();
             _isDragging = false;
             Cat.transform.DOMove(pos, .1f);
             Solve();
