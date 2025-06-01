@@ -34,7 +34,7 @@ namespace _Game.Scripts
             AreaType = (AreaType)Random.Range(0, 3);
             _hits = new RaycastHit2D[10];
             view.Initialize(AreaType);
-            
+
             base.Initialize(cat);
         }
 
@@ -42,13 +42,12 @@ namespace _Game.Scripts
         {
             if (IsRequestIgnored)
                 return;
-            
+
             CancelTimer();
             if (Cat.AreaType == AreaType)
             {
                 Cat.Approved().Forget();
                 SignalBus.Fire<GameSignals.OnSuccessRequest>();
-                
             }
             else
             {
@@ -98,17 +97,22 @@ namespace _Game.Scripts
         public void OnPointerUp(PointerEventData eventData)
         {
             Vector3 pos = Vector3.zero;
+            AreaType newAreaType = Cat.AreaType;
+
             if (Cat.AreaType != AreaType.Outside)
             {
                 switch (GetClosetAreaType())
                 {
                     case AreaType.Dark:
+                        newAreaType = AreaType.Dark;
                         pos = dark.ClosestPoint(this.transform.position);
                         break;
                     case AreaType.Main:
+                        newAreaType = AreaType.Main;
                         pos = main.ClosestPoint(this.transform.position);
                         break;
                     case AreaType.Garden:
+                        newAreaType = AreaType.Garden;
                         pos = garden.ClosestPoint(this.transform.position);
                         break;
                 }
@@ -117,7 +121,8 @@ namespace _Game.Scripts
             {
                 pos = position;
             }
-      
+
+            Cat.AreaType = newAreaType;
             SoundContoller.PlayClickSound();
             _isDragging = false;
             Cat.transform.DOMove(pos, .1f);

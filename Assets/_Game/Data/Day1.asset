@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb39745b5279495caf166230cef3871f, type: 3}
   m_Name: Day1
   m_EditorClassIdentifier: 
-  CatCount: 5
+  CatCount: 1
   Duration: 30
   FailStress: 25
   SuccessStress: 10
