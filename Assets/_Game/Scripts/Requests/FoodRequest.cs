@@ -17,7 +17,7 @@ namespace _Game.Scripts
         {
             FoodType = (FoodType)Random.Range(0, 3);
             view.Initialize(FoodType);
-            
+
             base.Initialize(cat);
         }
 
@@ -35,7 +35,7 @@ namespace _Game.Scripts
                 Cat.Decline().Forget();
                 SignalBus.Fire<GameSignals.OnFailRequest>();
             }
-            
+
             Player.ClearFood();
         }
 
@@ -45,6 +45,12 @@ namespace _Game.Scripts
                 return;
 
             Solve();
+        }
+
+        public override float GetDuration()
+        {
+            var duration = base.GetDuration();
+            return duration + (duration * .5f);
         }
     }
 }

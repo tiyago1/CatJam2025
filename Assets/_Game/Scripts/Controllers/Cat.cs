@@ -26,9 +26,8 @@ namespace _Game.Scripts
 
         public void Initialize()
         {
-            SetRandomRequest();
-
             view.Initialize(_dataController.GetRandomCat());
+            GoRandomPath();
         }
 
         protected override void MovementUpdateInternal(float deltaTime, out Vector3 nextPosition,

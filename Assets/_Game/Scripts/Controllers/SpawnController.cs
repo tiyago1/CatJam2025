@@ -9,16 +9,16 @@ using Random = UnityEngine.Random;
 
 namespace _Game.Scripts
 {
-    public class SpawnController : MonoBehaviour,IDisposable
+    public class SpawnController : MonoBehaviour, IDisposable
     {
         [SerializeField] private List<Transform> points;
         [SerializeField] private Cat catPrefab;
-        
+
         [Inject] private DiContainer _container;
         [Inject] private DataController _dataController;
-        
+
         private List<Cat> _cats;
-        
+
         [Button]
         public void Spawn()
         {
@@ -26,7 +26,7 @@ namespace _Game.Scripts
             var cat = _container.InstantiatePrefabForComponent<Cat>(catPrefab, point.transform.position,
                 Quaternion.identity,
                 this.transform);
-            
+
             cat.Initialize();
             _cats.Add(cat);
         }
@@ -35,11 +35,11 @@ namespace _Game.Scripts
         {
             _cats = new List<Cat>();
             points = this.GetComponentsInChildren<Transform>().ToList();
-            
+
             for (int i = 0; i < _dataController.Day.CatCount; i++)
             {
                 Spawn();
-                await UniTask.Delay(TimeSpan.FromSeconds(.5f));
+                await UniTask.Delay(TimeSpan.FromSeconds(Random.Range(0.2f, 1f)));
             }
         }
 

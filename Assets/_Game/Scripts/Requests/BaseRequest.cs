@@ -8,7 +8,7 @@ using Zenject;
 
 namespace _Game.Scripts
 {
-    public abstract class BaseRequest : MonoBehaviour,IDisposable
+    public abstract class BaseRequest : MonoBehaviour, IDisposable
     {
         [SerializeField] protected RequestView requestView;
 
@@ -24,18 +24,19 @@ namespace _Game.Scripts
         public virtual void Initialize(Cat cat)
         {
             Cat = cat;
-            requestView.StartTimer(_dataController.Day.GetRequestDuration());
+            requestView.StartTimer( GetDuration());
             StartTimer();
         }
 
         private void StartTimer()
         {
-           _timer=  DOVirtual.Float(0, 1, _dataController.Day.GetRequestDuration(), requestView.ProgressBar.SetFillAmount)
+            _timer = DOVirtual.Float(0, 1, _dataController.Day.GetRequestDuration(),
+                    requestView.ProgressBar.SetFillAmount)
                 .SetEase(Ease.Linear)
                 .OnComplete(() =>
                 {
-                     Cat.Decline().Forget();
-                     SignalBus.Fire<GameSignals.OnFailRequest>();
+                    Cat.Decline().Forget();
+                    SignalBus.Fire<GameSignals.OnFailRequest>();
                 })
                 .SetDelay(.1f);
         }
@@ -49,9 +50,13 @@ namespace _Game.Scripts
 
         public bool IsValid() => Player.ActiveRequest == Type;
 
+        public virtual float GetDuration()
+        {
+            return _dataController.Day.GetRequestDuration();
+        }
+
         public void Dispose()
         {
-            
         }
     }
 }
