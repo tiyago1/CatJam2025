@@ -26,6 +26,7 @@ namespace _Game.Scripts
         private bool _isDragging;
         private RaycastHit2D[] _hits;
         private Vector2 position;
+        private bool _isHolded;
 
         [Button]
         public override void Initialize(Cat cat)
@@ -69,6 +70,12 @@ namespace _Game.Scripts
             if (!_isDragging)
                 return;
 
+
+            if (!_isHolded)
+            {
+                Cat.ChangeState(CatState.Hold);
+            }
+            
             var point = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             point.z = 0;
 

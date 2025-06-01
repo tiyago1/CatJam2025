@@ -2259,7 +2259,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 908455402}
-  darknessStart: {r: 1, g: 1, b: 1, a: 0}
+  darknessStart: {r: 1, g: 1, b: 1, a: 0.40392157}
   darknessEnd: {r: 1, g: 1, b: 1, a: 1}
   scoreText: {fileID: 1275188310}
   container: {fileID: 724859965}
@@ -4345,34 +4345,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Cats:
   - Idle: {fileID: 21300000, guid: 2976e4adf00c1c44b88c88cee9cadab0, type: 3}
-    Hold: {fileID: 0}
+    Hold: {fileID: 21300000, guid: 5eae2681a79d26a40886bd7e9a14c0e1, type: 3}
     Walking: {fileID: 9100000, guid: e636a75101ba6f747838d139e923bee6, type: 2}
   - Idle: {fileID: 21300000, guid: f01ee3ca91928054da5ecc0187959f04, type: 3}
-    Hold: {fileID: 0}
+    Hold: {fileID: 21300000, guid: 205b6d1cc8132354eaae26cfd86fa1d3, type: 3}
     Walking: {fileID: 9100000, guid: e826a162fe56fc74195552d9e813f27e, type: 2}
   - Idle: {fileID: 21300000, guid: b2178db705a253f48aded87ef152b546, type: 3}
-    Hold: {fileID: 0}
+    Hold: {fileID: 21300000, guid: 0cb65d3b0f46407428897487d1fa646e, type: 3}
     Walking: {fileID: 9100000, guid: 9e2d5ff78e9fef548a6ca214bf611270, type: 2}
   - Idle: {fileID: 21300000, guid: 2b5a3f0221c5f604fb909edd009fa722, type: 3}
-    Hold: {fileID: 0}
+    Hold: {fileID: 21300000, guid: 9cb2d9834a692804ebb9b60ae92568b9, type: 3}
     Walking: {fileID: 9100000, guid: 2cb054e0bd524224899765f55bd13eaf, type: 2}
   - Idle: {fileID: 21300000, guid: 7cf39138e2ebb274a99d34b3bbd871de, type: 3}
-    Hold: {fileID: 0}
+    Hold: {fileID: 21300000, guid: b5d1084f125e4d74fb0a3bccce475c8e, type: 3}
     Walking: {fileID: 9100000, guid: a605ae2845a33ac40bf03c209601edc3, type: 2}
   - Idle: {fileID: 21300000, guid: 901a27344985726479873772176510d9, type: 3}
-    Hold: {fileID: 0}
+    Hold: {fileID: 21300000, guid: 019585feff33c3044a889ea24a947598, type: 3}
     Walking: {fileID: 9100000, guid: 289c9962331f9444dbbce10b5ad3cb00, type: 2}
   - Idle: {fileID: 21300000, guid: 9975fa2ea9d0cf042b664f13f093f13f, type: 3}
-    Hold: {fileID: 0}
+    Hold: {fileID: 21300000, guid: 4dbe2680856c80449ad6a75f84778753, type: 3}
     Walking: {fileID: 9100000, guid: 77581704905aa104eac6dc489cce150d, type: 2}
   - Idle: {fileID: 21300000, guid: 4e9de23d017d9584dbf2c580d79cf9d9, type: 3}
-    Hold: {fileID: 0}
+    Hold: {fileID: 21300000, guid: 8bdc0f05935d4844d8235288f65f9611, type: 3}
     Walking: {fileID: 9100000, guid: 2cb054e0bd524224899765f55bd13eaf, type: 2}
   - Idle: {fileID: 21300000, guid: 98f2c37a4190c63448e8cc63ad914c76, type: 3}
-    Hold: {fileID: 0}
+    Hold: {fileID: 21300000, guid: 9f9efc62869c6f44492a944b1674da8e, type: 3}
     Walking: {fileID: 9100000, guid: c5dbfee97edd3464889058bafa7a3549, type: 2}
   - Idle: {fileID: 21300000, guid: c4c9207d01a41c149acfa065ad834c7b, type: 3}
-    Hold: {fileID: 0}
+    Hold: {fileID: 21300000, guid: a0790cc1ff3e46f43b65dd24c27133bf, type: 3}
     Walking: {fileID: 9100000, guid: a5459bd8ca182524592b25f36a51878e, type: 2}
   Days:
   - {fileID: 11400000, guid: 34529bbf5a193ac43804d3095c77f607, type: 2}

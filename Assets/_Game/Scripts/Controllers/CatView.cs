@@ -16,6 +16,7 @@ namespace _Game.Scripts
     public class CatView : MonoBehaviour
     {
         [SerializeField] private SpriteRenderer renderer;
+        [SerializeField] private SpriteRenderer holdRenderer;
         [SerializeField] private GameObject angryObject;
         [SerializeField] private Animator walkAnimator;
         [SerializeField] private SpriteRenderer walkSpriteRenderer;
@@ -34,6 +35,7 @@ namespace _Game.Scripts
             angryObject.SetActive(state == CatState.Angry);
             walkAnimator.gameObject.SetActive(false);
             renderer.gameObject.SetActive(false);
+            holdRenderer.gameObject.SetActive(false);
 
             switch (state)
             {
@@ -53,8 +55,8 @@ namespace _Game.Scripts
                     walkAnimator.runtimeAnimatorController = _data.Walking;
                     break;
                 case CatState.Hold:
-                    renderer.gameObject.SetActive(true);
-                    renderer.sprite = _data.Idle;
+                    holdRenderer.gameObject.SetActive(true);
+                    holdRenderer.sprite = _data.Hold;
                     break;
             }
         }
