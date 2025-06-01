@@ -307,8 +307,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 5
-  radius: 0.5
-  height: 2
+  radius: 1.3
+  height: 3
   canMove: 1
   maxSpeed: 2
   gravity: {x: 0, y: 0, z: 0}
@@ -338,7 +338,7 @@ MonoBehaviour:
   constrainInsideGraph: 0
   requests:
   - {fileID: 4776630397656086714, guid: ea44f31e82b84c24782efb795a0d4e47, type: 3}
-  - {fileID: 0}
+  - {fileID: 3335564346043549583, guid: 997ff1f1829658f4387f30eefb481647, type: 3}
   - {fileID: 6960952728493962041, guid: 32c2faee5528fd44c8249da5e99637a5, type: 3}
   requestContainer: {fileID: 1705186484400940896}
   view: {fileID: 5856295519299688521}

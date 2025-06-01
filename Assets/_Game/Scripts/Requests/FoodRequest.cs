@@ -24,7 +24,6 @@ namespace _Game.Scripts
         public override void Solve()
         {
             CancelTimer();
-            Player.ClearFood();
 
             if (Player.ActiveFood.Type == FoodType)
             {
@@ -36,6 +35,8 @@ namespace _Game.Scripts
                 Cat.Decline().Forget();
                 SignalBus.Fire<GameSignals.OnFailRequest>();
             }
+            
+            Player.ClearFood();
         }
 
         public void OnPointerDown(PointerEventData eventData)

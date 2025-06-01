@@ -5,15 +5,14 @@ using Zenject;
 
 namespace _Game.Scripts
 {
-    public class FoodSupplyController : MonoBehaviour, IPointerClickHandler
+    public class FoodSupplyController : MonoBehaviour, IPointerDownHandler
     {
         [SerializeField] private Food food;
         
         [Inject] private PlayerController player;
 
-        public void OnPointerClick(PointerEventData eventData)
+        public void OnPointerDown(PointerEventData eventData)
         {
-            Debug.Log("OnPointerClick");
             player.ChangeRequest(RequestType.Food);
             player.SetActiveFood(food);
         }

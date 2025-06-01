@@ -6,6 +6,7 @@ using GamePlay.Components;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using Zenject;
+using Random = UnityEngine.Random;
 
 namespace _Game.Scripts
 {
@@ -23,7 +24,6 @@ namespace _Game.Scripts
         [Inject] private DiContainer _container;
         [Inject] private DataController _dataController;
 
-
         public void Initialize()
         {
             SetRandomRequest();
@@ -37,7 +37,6 @@ namespace _Game.Scripts
             base.MovementUpdateInternal(deltaTime, out nextPosition, out nextRotation);
             view.Flip(nextPosition.x > transform.position.x);
         }
-
 
         public void ChangeState(CatState state)
         {
@@ -76,7 +75,8 @@ namespace _Game.Scripts
 
         public void SetRandomRequest()
         {
-            SetRequestType(RequestType.Area);
+            var request = Random.Range(0, requests.Count);
+            SetRequestType((RequestType)request);
         }
 
         [Button]

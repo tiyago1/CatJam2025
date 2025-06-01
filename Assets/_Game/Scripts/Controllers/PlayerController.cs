@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using _Game.Enums;
 using UnityEngine;
 
@@ -36,6 +34,7 @@ namespace _Game.Scripts
             
             Destroy(ActiveFood.gameObject);
             ActiveFood = null;
+            ChangeRequest(RequestType.None);
         }
         
         private void Update()
