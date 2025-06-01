@@ -7,6 +7,7 @@ namespace _Game.Data
     {
         public Sprite Idle;
         public Sprite Hold;
+        public Sprite Happy;
         public RuntimeAnimatorController Walking;
     }
 }
