@@ -1,4 +1,3 @@
-using System;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
@@ -7,10 +6,9 @@ using Zenject;
 
 namespace _Game.Scripts
 {
-    public class DayFinishedPanelView : MonoBehaviour
+    public class LastDayFinishedPanelView : MonoBehaviour
     {
         public CanvasGroup canvasGroup;
-        public TextMeshProUGUI dayText;
         public TextMeshProUGUI scoreText;
         
         [Inject] private DataController dataController;
@@ -31,17 +29,15 @@ namespace _Game.Scripts
 
         private void SetupPanel()
         {
-            dayText.text = $"DAY - {dataController.DayIndex + 1} COMPLETED";
-            scoreText.text = dataController.GetPositiveCount(dataController.DayIndex).ToString();
+            scoreText.text = dataController.GetTotalPositiveCount().ToString();
             scoreText.text += "-";
-            scoreText.text += dataController.GetNegativeCount(dataController.DayIndex).ToString();
+            scoreText.text += dataController.GetTotalNegativeCount().ToString();
         }
 
-        public void OnNextDayClicked()
+        public void OnFinish()
         {
-            dataController.DayIndex++;
+            dataController.ClearData();
             soundContoller.PlayClickSound();
-
             SceneManager.LoadScene(1);
         }
         

@@ -139,11 +139,18 @@ namespace _Game.Scripts.Managers
 
         public void OnDayTimeFinished()
         {
-            if (CurrentStress < MaxStress && _dataController.DayIndex < 6)
+            if (CurrentStress < MaxStress )
             {
-                _signalBus.Fire<GameSignals.OnNextDay>();
+                if (_dataController.DayIndex < 6)
+                {
+                    _signalBus.Fire<GameSignals.OnNextDay>();
+                }
+                else
+                {
+                    _signalBus.Fire<GameSignals.OnGameOverWithSuccess>();
+                }
             }
-            else
+            else 
             {
                 GameOver();
             }

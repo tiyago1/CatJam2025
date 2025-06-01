@@ -16,6 +16,11 @@
         {
             
         }
+        
+        public struct OnGameOverWithSuccess
+        {
+            
+        }
 
         public struct OnNextDay
         {

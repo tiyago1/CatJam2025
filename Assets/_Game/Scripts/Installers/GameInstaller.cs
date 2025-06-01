@@ -11,6 +11,7 @@ namespace Game.Installers
             Container.DeclareSignal<GameSignals.OnFailRequest>().OptionalSubscriber();
             Container.DeclareSignal<GameSignals.OnSuccessRequest>().OptionalSubscriber();
             Container.DeclareSignal<GameSignals.OnGameOver>().OptionalSubscriber();
+            Container.DeclareSignal<GameSignals.OnGameOverWithSuccess>().OptionalSubscriber();
             Container.DeclareSignal<GameSignals.OnGameWon>().OptionalSubscriber();
             Container.DeclareSignal<GameSignals.OnNextDay>().OptionalSubscriber();
         }

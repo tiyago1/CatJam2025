@@ -1,8 +1,10 @@
+using System;
 using System.Collections.Generic;
 using _Game.Data;
 using _Game.Scripts.Data;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace _Game.Scripts
 {
@@ -26,6 +28,15 @@ namespace _Game.Scripts
         {
             Day = Instantiate(Days[DayIndex]);
         }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.P))
+            {
+               ClearData();
+            }
+        }
+
 
         public CatData GetRandomCat()
         {

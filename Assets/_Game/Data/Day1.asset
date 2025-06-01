@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Day1
   m_EditorClassIdentifier: 
   CatCount: 1
-  Duration: 30
+  Duration: 4
   FailStress: 25
   SuccessStress: 10
   MaxStress: 100

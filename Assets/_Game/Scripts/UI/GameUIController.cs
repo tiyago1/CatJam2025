@@ -15,6 +15,7 @@ namespace _Game.Scripts
         [SerializeField] private TextMeshProUGUI dayText;
         [SerializeField] private GameOverPanelView gameOverPanelView;
         [SerializeField] private DayFinishedPanelView dayFinishedPanel;
+        [SerializeField] private LastDayFinishedPanelView lastDayFinishedPanelView;
         
         [SerializeField] private float minRotation;
         [SerializeField] private float maxRotation;
@@ -28,8 +29,14 @@ namespace _Game.Scripts
             dayText.text = $"Day {_dataController.DayIndex + 1}";
             _signalBus.Subscribe<GameSignals.OnGameOver>(OnGameOver);
             _signalBus.Subscribe<GameSignals.OnNextDay>(ActivateDayFinishedPanel);
+            _signalBus.Subscribe<GameSignals.OnGameOverWithSuccess>(OnSuccessLastDay);
         }
 
+        private void OnSuccessLastDay()
+        {
+            lastDayFinishedPanelView.Show();
+        }
+        
         private void OnGameOver()
         {
             gameOverPanelView.Show();
